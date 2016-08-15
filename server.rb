@@ -4,14 +4,12 @@ require_relative 'lib/hi_low'
 # require_relative 'lib/russian_roulette'
 
 get '/' do
-	@player = params[:name]
-	@wallet = params[:wallet].to_i
 	erb :index
 end
 
 post '/' do
-	@player = params[:name]
-	@wallet = params[:wallet].to_i
+	$player = params[:name]
+	$wallet = params[:wallet].to_i
 	erb :test
 end
 
