@@ -16,12 +16,17 @@ post '/' do
 end
 
 get '/high_low' do
-  @computer_card = HighLow.new.computer_card
-	erb :high_low
+  @game = HighLow.new 
+  $computer_card = @game.computer_card
+  $compare_card = @game.compare_card
+  @computer_card = $computer_card
+  erb :high_low
 end
 
 post '/high_low' do
-  @result = HighLow.new_compare(params[:computer_card_value], params[:guess])
+  @result = HighLow.new_compare(params[:computer_card_value], params[:guess], $compare_card.value)
+  @compare_card = $compare_card
+  @computer_card = $computer_card
   erb :high_low_result
 end
 

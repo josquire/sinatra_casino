@@ -5,5 +5,8 @@
 <% else %>
   <h3>Boo, You lost!</h3>
 <% end %>
+<h4>The first card is <%= @computer_card.display_value %></h4>
+<h4>The second card is <%= @compare_card.display_value %></h4>
+
 
 <a href='/high_low'>New High Game</a>
