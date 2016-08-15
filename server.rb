@@ -30,14 +30,18 @@ post '/high_low' do
   erb :high_low_result
 end
 
-
 get '/russian' do
-  @russian = RussianRoulette.new
   erb :russian
 end
 
 post '/russian' do
-	@results =
+	@bullets = RussianRoulette.new
+	@results = RussianRoulette.run_russian
+	if @results == "click"
+		@wallet += 10
+	else
+		@wallet = 0
+	end
   erb :russian_results
 end
 
