@@ -4,11 +4,15 @@ require_relative 'lib/hi_low'
 require_relative 'lib/russian_roulette'
 
 get '/' do
-	# form to create a new player
-	# @player - show a game menu
-	# that game menu is links to each
-	# game route eg. /high_low, /craps
+	@player = params[:name]
+	@wallet = params[:wallet]
 	erb :index
+end
+
+post '/' do
+	@player = params[:name]
+	@wallet = params[:wallet]
+	erb :test
 end
 
 get '/high_low' do
@@ -23,13 +27,16 @@ end
 
 get '/russian' do
   @russian = RussianRoulette.new
-  erb :russian 
+  erb :russian
 end
 
 post '/russian' do
   @trigger = params[:trigger]
   erb :russian
 end
+
+
+
 
 # post '/russian' do
 # end
