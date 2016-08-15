@@ -1,17 +1,17 @@
 require 'sinatra'
 require 'pry'
 require_relative 'lib/hi_low'
-require_relative 'lib/russian_roulette'
+# require_relative 'lib/russian_roulette'
 
 get '/' do
 	@player = params[:name]
-	@wallet = params[:wallet]
+	@wallet = params[:wallet].to_i
 	erb :index
 end
 
 post '/' do
 	@player = params[:name]
-	@wallet = params[:wallet]
+	@wallet = params[:wallet].to_i
 	erb :test
 end
 
@@ -36,6 +36,10 @@ post '/russian' do
   erb :russian_results
 end
 
-get '/views/test' do
+get '/menu' do
 	erb :test
+end
+
+get '/wallet' do
+	erb :wallet
 end

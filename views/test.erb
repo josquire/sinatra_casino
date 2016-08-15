@@ -1,17 +1,15 @@
-<p>Welcome, <%= @player %>, your bankroll is <%= @wallet %>. </p>
+<h1>Welcome <%= @player %>, your bankroll is <%= @wallet %>. </h1>
 
 <h3>Where would you like to go next:</h3>
-<ol>
-  <li>
-    <a href='high_low'>High Low</a>
-  </li>
-  <li>
-    <a href='russian'>Russian Roulete</a>
-  </li>
-  <li>
-    <a href='wallet'>Check Bank Roll</a>
-  </li>
-  <li>
-    Leave Casino
-  </li>
-</ol>
+
+<div class="float">
+  <a href='/high_low'><img src="/images/Hi-Low Cards.jpg" alt="High Low image"></a>
+</div>
+
+<div class="float">
+  <a href='/russian'><img src="/images/one-bullet.jpg" alt='One bullet loaded'/></a>
+</div>
+
+<div class="float">
+  <a href='/wallet'><img src="/images/bankroll.jpg" alt='Roll of Money'/></a>
+</div>
