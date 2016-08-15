@@ -35,9 +35,3 @@ post '/russian' do
 	@results =
   erb :russian_results
 end
-
-
-
-
-# post '/russian' do
-# end
