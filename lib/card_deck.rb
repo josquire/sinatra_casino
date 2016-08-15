@@ -8,6 +8,10 @@ class Card
     @value = value.to_i
   end
 
+  def display_value
+    "#{color} #{rank} of #{suit}"
+  end
+
   def color
     return @color
   end

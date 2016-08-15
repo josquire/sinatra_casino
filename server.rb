@@ -3,7 +3,6 @@ require 'pry'
 require_relative 'lib/hi_low'
 require_relative 'lib/russian_roulette'
 
-
 get '/' do
 	# form to create a new player
 	# @player - show a game menu
@@ -13,13 +12,13 @@ get '/' do
 end
 
 get '/high_low' do
-	@high_low = HighLow.new
+  @computer_card = HighLow.new.computer_card
 	erb :high_low
 end
 
 post '/high_low' do
-  @guess = params[:guess]
-  erb :high_low 
+  @result = HighLow.new_compare(params[:computer_card_value], params[:guess])
+  erb :high_low_result
 end
 
 get '/russian' do

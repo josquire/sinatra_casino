@@ -1,13 +1,17 @@
 <h1>Welcome To High Low</h1>
 
 <h4>
-  The Computers Number Is: 
-  <%= @first_card.find_rank.suit %>
+  The Computers Card Is: 
+  <%= "#{@computer_card.display_value}" %>
 </h4>
 
-<h4>Make your guess? Higher or Lower? (1 - 100)</h4>
+<h4>Make your guess? Higher or Lower?</h4>
 
-<form method='POST' action='/high_low_guess'>
-  <input type='text' required name='guess' />
+<form method='POST' action='/high_low'>
+  <select name='guess'>
+    <option value='higher'>Higher</option>
+    <option value='lower'>Lower</option>
+  </select>
+  <input type='hidden' value= <%= @computer_card.value %> name='computer_card_value' />
   <input type='submit' />
 </form>
