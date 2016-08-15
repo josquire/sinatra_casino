@@ -35,3 +35,7 @@ post '/russian' do
 	@results =
   erb :russian_results
 end
+
+get '/views/test' do
+	erb :test
+end
