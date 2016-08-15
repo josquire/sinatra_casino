@@ -1,0 +1,13 @@
+<h1>Welcome To High Low</h1>
+
+<h4>
+  The Computers Number Is: 
+  <%= @high_low.computer_number %>
+</h4>
+
+<h4>Make your guess? Higher or Lower? (1 - 100)</h4>
+
+<form method='POST' action='/high_low_guess'>
+  <input type='number' required name='guess' />
+  <input type='submit' />
+</form>
