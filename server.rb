@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'pry'
-require_relative 'lib/high_low'
+require_relative 'lib/hi_low'
+require_relative 'lib/russian_roulette'
+
 
 get '/' do
 	# form to create a new player
@@ -14,3 +16,21 @@ get '/high_low' do
 	@high_low = HighLow.new
 	erb :high_low
 end
+
+post '/high_low' do
+  @guess = params[:guess]
+  erb :high_low 
+end
+
+get '/russian' do
+  @russian = RussianRoulette.new
+  erb :russian 
+end
+
+post '/russian' do
+  @trigger = params[:trigger]
+  erb :russian
+end
+
+# post '/russian' do
+# end

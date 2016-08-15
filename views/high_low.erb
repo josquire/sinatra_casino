@@ -2,12 +2,12 @@
 
 <h4>
   The Computers Number Is: 
-  <%= @high_low.computer_number %>
+  <%= @first_card.find_rank.suit %>
 </h4>
 
 <h4>Make your guess? Higher or Lower? (1 - 100)</h4>
 
 <form method='POST' action='/high_low_guess'>
-  <input type='number' required name='guess' />
+  <input type='text' required name='guess' />
   <input type='submit' />
 </form>
