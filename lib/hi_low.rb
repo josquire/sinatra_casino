@@ -1,9 +1,10 @@
+require 'pry'
 require_relative 'card_deck'
 # a card needs to be drawn from an array
 class HighLow
   # attr_accessor :player, :game
   # def initialize(player, game)
-  attr_accessor :computer_card
+  attr_accessor :computer_card, :compare_card
   def initialize
     # # @game = game
     # # @player = player
@@ -15,93 +16,93 @@ class HighLow
     # else
     #   first_bet
     # end
+    @compare_card = Deck.new.return_a_card
     @computer_card = Deck.new.return_a_card
   end
 
-  def first_bet
-    # puts "How much would you like to bet of your #{@player.wallet.amount} amount?"
-    @bet_amount = gets.to_i
-    start_game
-  end
+  # def first_bet
+  #   # puts "How much would you like to bet of your #{@player.wallet.amount} amount?"
+  #   @bet_amount = gets.to_i
+  #   start_game
+  # end
 
-  def start_game
-    # puts 'Your first card is...'
-    @deck = Deck.new
-    # puts @deck
-    # require_relative 'deck_cards.rb'
-    @first_card = @deck.return_a_card
-    @second_card = @deck.return_a_card
-    # puts "#{@first_card.find_rank} of #{@first_card.suit}"
-    # binding.pry
-    compare_method
-  end
+  # def start_game
+  #   # puts 'Your first card is...'
+  #   @deck = Deck.new
+  #   # puts @deck
+  #   # require_relative 'deck_cards.rb'
+  #   @first_card = @deck.return_a_card
+  #   @second_card = @deck.return_a_card
+  #   # puts "#{@first_card.find_rank} of #{@first_card.suit}"
+  #   # binding.pry
+  #   compare_method
+  # end
 
-  def self.new_compare(computer, user_guess)
+  def self.new_compare(computer, user_guess, compare_card)
     win = false
-    compare_card_value = Deck.new.return_a_card.value
     case user_guess
       when 'higher'
-        win = true if compare_card_value >= computer.to_i
+        win = true if compare_card >= computer.to_i
       when 'lower'
-        win = true if compare_card_value <= computer.to_i
+        win = true if compare_card <= computer.to_i
     end
     win
   end
 
-  def compare_method
-    # puts "Is the next card going to be High or Low?"
-    # @guess = gets.strip.downcase
+  # def compare_method
+  #   # puts "Is the next card going to be High or Low?"
+  #   # @guess = gets.strip.downcase
 
-    case @guess
-      when 'high'
-        high
-      when 'low'
-        low
-      else
-        # puts 'Please make a valid selection'
-    end
-  end
+  #   case @guess
+  #     when 'high'
+  #       high
+  #     when 'low'
+  #       low
+  #     else
+  #       # puts 'Please make a valid selection'
+  #   end
+  # end
 
-  def second
-    # puts "The second card is #{@second_card.find_rank} of #{@second_card.suit}"
+  # def second
+  #   # puts "The second card is #{@second_card.find_rank} of #{@second_card.suit}"
 
-  end
+  # end
 
-  def high
-    second
-    # @first_card = first.value
-    # @second_card = second.value
-    if @first_card.value < @second_card.value
-      @player.wallet.amount += @bet_amount
-      puts "You Win!!".colorize(:green)
-    else
-      @player.wallet.amount -= @bet_amount
-      puts "You Lose!".colorize(:red)
-    end
-    play_again
-  end
+  # def high
+  #   second
+  #   # @first_card = first.value
+  #   # @second_card = second.value
+  #   if @first_card.value < @second_card.value
+  #     @player.wallet.amount += @bet_amount
+  #     puts "You Win!!".colorize(:green)
+  #   else
+  #     @player.wallet.amount -= @bet_amount
+  #     puts "You Lose!".colorize(:red)
+  #   end
+  #   play_again
+  # end
 
-  def low
-    second
-    # @first_card = first.value
-    # @second_card = second.value
-    if @first_card.value > @second_card.value
-      @player.wallet.amount += @bet_amount
-      puts "You Win!!".colorize(:green)
-    else
-      @player.wallet.amount -= @bet_amount
-      puts "You Lose!".colorize(:red)
-    end
-    play_again
-  end
+  # def low
+  #   second
+  #   # @first_card = first.value
+  #   # @second_card = second.value
+  #   if @first_card.value > @second_card.value
+  #     @player.wallet.amount += @bet_amount
+  #     puts "You Win!!".colorize(:green)
+  #   else
+  #     @player.wallet.amount -= @bet_amount
+  #     puts "You Lose!".colorize(:red)
+  #   end
+  #   play_again
+  # end
 
-  def play_again
-    # puts "Would you like to play again?"
-    input = gets.strip.downcase
-    if input == 'yes'
-      first_bet
-    else
-      GameMenu.new#(@player)
-    end
-  end
+  # def play_again
+  #   # puts "Would you like to play again?"
+  #   input = gets.strip.downcase
+  #   if input == 'yes'
+  #     first_bet
+  #   else
+  #     GameMenu.new#(@player)
+  #   end
+  # end
 end
