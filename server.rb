@@ -25,14 +25,15 @@ post '/high_low' do
   erb :high_low_result
 end
 
+
 get '/russian' do
   @russian = RussianRoulette.new
   erb :russian
 end
 
 post '/russian' do
-  @trigger = params[:trigger]
-  erb :russian
+	@results =
+  erb :russian_results
 end
 
 

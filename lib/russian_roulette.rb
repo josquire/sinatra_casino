@@ -1,10 +1,9 @@
 class RussianRoulette
 
-  # attr_accessor :game, :bullets
- #  def initialize(player)
- #    @player = player
+  attr_accessor :player :wallet
+
   def initialize
-    # @game = game
+    @game = game
     @bullets = ["1", "2", "3", "4", "5", "6"]
   end
 
@@ -53,6 +52,3 @@ class RussianRoulette
   end
 end
 end
-
-
-
