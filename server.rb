@@ -33,8 +33,8 @@ get '/russian' do
 end
 
 post '/russian' do
-  @results = RussianRoulette.run_russian
-  erb :russian_results
+		@results = RussianRoulette.run_russian
+		erb :russian_results
 end
 
 get '/menu' do
