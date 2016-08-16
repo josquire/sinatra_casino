@@ -14,7 +14,7 @@ post '/' do
 end
 
 get '/high_low' do
-  @game = HighLow.new 
+  @game = HighLow.new
   $computer_card = @game.computer_card
   $compare_card = @game.compare_card
   @computer_card = $computer_card
@@ -28,15 +28,14 @@ post '/high_low' do
   erb :high_low_result
 end
 
-
 get '/russian' do
-  @russian = RussianRoulette.new
   erb :russian
 end
 
 post '/russian' do
-	@results =
-  erb :russian_results
+    @results = RussianRoulette.run_russian
+  erb :russian_results
+ binding.pry
 end
 
 get '/menu' do

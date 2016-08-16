@@ -1,8 +1,13 @@
-<% if @result == true %>
-  <h3>...Click...</h3>
+<% if @results == "click" %>
+  <br>
+  <h3>...Click...</h3><br>
+  <h3>Congratulations <%= $player %>, you won <strong>$10!</strong></h3>
 <% else %>
-  <h3>...BANG...</h3>
+  <br>
+  <h3>...BANG!...   (thud)  </h3>
+  <h3>Hmm. Looks like you died and lost all of your money. So sorry for your misfortune.</h3>
+  <h3>Worry not - as a token of good humanity, we will donate $10 to your family \nto help with this inconvenience.</h3>
 <% end %>
 
 
-<a href='/russian'>Lets go again</a>
+<a href='/russian'><h3>Lets go again!</h3></a>
