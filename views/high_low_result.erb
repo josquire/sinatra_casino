@@ -1,12 +1,21 @@
 <h1>Result Of Last High Low Game</h1>
 
-<% if @result == true %>
-  <h3>You WON!!</h3>
-<% else %>
-  <h3>Boo, You lost!</h3>
-<% end %>
+
+  <% if @result == true %>
+  <h3 class="win">You WON!!</h3>
+  <% else %>
+  <h3  class="lose">Boo, You lost!</h3>
+  <% end %>
+
+
 <h4>The first card is <%= @computer_card.display_value %></h4>
 <h4>The second card is <%= @compare_card.display_value %></h4>
 
+<div class="cards">
 
-<a href='/high_low'>New High Game</a>
+  <a href='/high_low'>New High Game</a>
+</div>
+
+<hr/>
+
+<img src="/images/deck.jpg" class ="deck-alt" alt="face cards"
