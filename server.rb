@@ -1,22 +1,20 @@
 require 'sinatra'
 require 'pry'
 require_relative 'lib/hi_low'
-# require_relative 'lib/russian_roulette'
+require_relative 'lib/russian_roulette'
 
 get '/' do
-	@player = params[:name]
-	@wallet = params[:wallet].to_i
 	erb :index
 end
 
 post '/' do
-	@player = params[:name]
-	@wallet = params[:wallet].to_i
+	$player = params[:name]
+	$wallet = params[:wallet].to_i
 	erb :test
 end
 
 get '/high_low' do
-  @game = HighLow.new 
+  @game = HighLow.new
   $computer_card = @game.computer_card
   $compare_card = @game.compare_card
   @computer_card = $computer_card
@@ -37,11 +35,6 @@ end
 post '/russian' do
 	@bullets = RussianRoulette.new
 	@results = RussianRoulette.run_russian
-	if @results == "click"
-		@wallet += 10
-	else
-		@wallet = 0
-	end
   erb :russian_results
 end
 
